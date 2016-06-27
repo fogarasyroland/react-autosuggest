@@ -236,7 +236,7 @@ class Autosuggest extends Component {
             const focusedSuggestion = this.getFocusedSuggestion();
 
             if (!alwaysOpened)   closeSuggestions('enter');
-
+            else inputChanged(shouldRenderSuggestions(value), 'type');
             if (focusedSuggestion !== null) {
               onSuggestionSelected(event, {
                 suggestion: focusedSuggestion,
@@ -268,6 +268,7 @@ class Autosuggest extends Component {
             }
 
             if (!alwaysOpened) closeSuggestions('escape');
+            else inputChanged(shouldRenderSuggestions(value), 'type');
             break;
         }
 
@@ -297,7 +298,7 @@ class Autosuggest extends Component {
         method: 'click'
       });
       if (!alwaysOpened) closeSuggestions('click');
-
+      else inputChanged(shouldRenderSuggestions(value), 'type');
       if (focusInputOnSuggestionClick === true) {
         this.input.focus();
       } else {

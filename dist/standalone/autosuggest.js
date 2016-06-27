@@ -1648,8 +1648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              {
 	                var focusedSuggestion = _this2.getFocusedSuggestion();
 
-	                if (!alwaysOpened) closeSuggestions('enter');
-
+	                if (!alwaysOpened) closeSuggestions('enter');else inputChanged(shouldRenderSuggestions(value), 'type');
 	                if (focusedSuggestion !== null) {
 	                  onSuggestionSelected(event, {
 	                    suggestion: focusedSuggestion,
@@ -1682,7 +1681,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this2.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
 	              }
 
-	              if (!alwaysOpened) closeSuggestions('escape');
+	              if (!alwaysOpened) closeSuggestions('escape');else inputChanged(shouldRenderSuggestions(value), 'type');
 	              break;
 	          }
 
@@ -1717,8 +1716,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          sectionIndex: sectionIndex,
 	          method: 'click'
 	        });
-	        if (!alwaysOpened) closeSuggestions('click');
-
+	        if (!alwaysOpened) closeSuggestions('click');else inputChanged(shouldRenderSuggestions(value), 'type');
 	        if (focusInputOnSuggestionClick === true) {
 	          _this2.input.focus();
 	        } else {
