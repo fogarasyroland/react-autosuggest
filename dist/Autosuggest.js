@@ -324,7 +324,7 @@ var Autosuggest = function (_Component) {
                 _this2.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
               }
 
-              closeSuggestions('escape');
+              if (!alwaysOpened) closeSuggestions('escape');
               break;
           }
 
@@ -359,7 +359,7 @@ var Autosuggest = function (_Component) {
           sectionIndex: sectionIndex,
           method: 'click'
         });
-        closeSuggestions('click');
+        if (!alwaysOpened) closeSuggestions('click');
 
         if (focusInputOnSuggestionClick === true) {
           _this2.input.focus();

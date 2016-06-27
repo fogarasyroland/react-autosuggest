@@ -235,8 +235,7 @@ class Autosuggest extends Component {
           case 'Enter': {
             const focusedSuggestion = this.getFocusedSuggestion();
 
-            if (!alwaysOpened)
-              closeSuggestions('enter');
+            if (!alwaysOpened)   closeSuggestions('enter');
 
             if (focusedSuggestion !== null) {
               onSuggestionSelected(event, {
@@ -268,7 +267,7 @@ class Autosuggest extends Component {
               this.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
             }
 
-            closeSuggestions('escape');
+            if (!alwaysOpened) closeSuggestions('escape');
             break;
         }
 
@@ -297,7 +296,7 @@ class Autosuggest extends Component {
         sectionIndex,
         method: 'click'
       });
-      closeSuggestions('click');
+      if (!alwaysOpened) closeSuggestions('click');
 
       if (focusInputOnSuggestionClick === true) {
         this.input.focus();
