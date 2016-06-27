@@ -78,14 +78,16 @@ export default class Basic extends Component {
             Codepen
           </Link>
         </div>
+        eeee
         <div className={styles.autosuggest}>
-          <Autosuggest suggestions={suggestions}
+          <Autosuggest alwaysOpened={true}
+           suggestions={suggestions}
                        onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
                        getSuggestionValue={getSuggestionValue}
                        renderSuggestion={renderSuggestion}
                        inputProps={inputProps}
                        focusInputOnSuggestionClick={focusInputOnSuggestionClick}
-                       id="basic-example" />
+                       id="basic-example222" />
         </div>
       </div>
     );

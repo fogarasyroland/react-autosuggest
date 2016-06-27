@@ -133,7 +133,9 @@
 	function renderSuggestion(suggestion) {
 	  return React.createElement(
 	    'span',
-	    null,
+	    {
+	      __self: this
+	    },
 	    suggestion.name
 	  );
 	}
@@ -193,14 +195,17 @@
 	        , onSuggestionsUpdateRequested: this.onSuggestionsUpdateRequested,
 	        getSuggestionValue: getSuggestionValue,
 	        renderSuggestion: renderSuggestion,
-	        inputProps: inputProps });
+	        inputProps: inputProps, __self: this
+	      });
 	    }
 	  }]);
 
 	  return App;
 	}(React.Component);
 
-	ReactDOM.render(React.createElement(App, null), document.getElementById('app')); // eslint-disable-line no-undef
+	ReactDOM.render(React.createElement(App, {
+	  __self: undefined
+	}), document.getElementById('app')); // eslint-disable-line no-undef
 
 /***/ }
 /******/ ]);

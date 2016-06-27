@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/moroshko/react-autosuggest.git"
+    "url": "https://github.com/fogarasy.roland/react-autosuggest.git"
   },
-  "author": "Misha Moroshko <michael.moroshko@gmail.com>",
+  "author": "Misha Moroshko <michael.fogarasy.roland@gmail.com>",
   "scripts": {
     "start": "mkdir -p demo/dist && npm run copy-static-files && node server",
     "lint": "eslint src demo/src demo/standalone/app.js test server.js webpack.*.js",
@@ -93,5 +93,12 @@
     "react-auto-complete",
     "react-component"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fogarasy.roland/react-autosuggest/issues"
+  },
+  "homepage": "https://github.com/fogarasy.roland/react-autosuggest",
+  "directories": {
+    "test": "test"
+  }
 }

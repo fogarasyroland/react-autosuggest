@@ -70,6 +70,7 @@ export default class AutosuggestContainer extends Component {
     getSectionSuggestions: PropTypes.func,
     focusInputOnSuggestionClick: PropTypes.bool,
     theme: PropTypes.object,
+    alwaysOpened: PropTypes.bool,
     id: PropTypes.string
   };
 
@@ -112,14 +113,15 @@ export default class AutosuggestContainer extends Component {
 
   render() {
     const {
-      multiSection, shouldRenderSuggestions, suggestions,
+      alwaysOpened, multiSection, shouldRenderSuggestions, suggestions,
       onSuggestionsUpdateRequested, getSuggestionValue, renderSuggestion,
       renderSectionTitle, getSectionSuggestions, inputProps,
       onSuggestionSelected, focusInputOnSuggestionClick, theme, id
     } = this.props;
 
     return (
-      <Autosuggest multiSection={multiSection}
+      <Autosuggest alwaysOpened={alwaysOpened}
+                   multiSection={multiSection}
                    shouldRenderSuggestions={shouldRenderSuggestions}
                    suggestions={suggestions}
                    onSuggestionsUpdateRequested={onSuggestionsUpdateRequested}

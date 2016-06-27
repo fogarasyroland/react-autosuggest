@@ -61,6 +61,7 @@ class Autosuggest extends Component {
     focusedSuggestionIndex: PropTypes.number,
     valueBeforeUpDown: PropTypes.string,
     lastAction: PropTypes.string,
+    alwaysOpened: PropTypes.bool,
 
     inputFocused: PropTypes.func.isRequired,
     inputBlurred: PropTypes.func.isRequired,
@@ -72,7 +73,6 @@ class Autosuggest extends Component {
 
   constructor() {
     super();
-
     this.saveInput = this.saveInput.bind(this);
   }
 
@@ -174,7 +174,7 @@ class Autosuggest extends Component {
 
   render() {
     const {
-      suggestions, renderSuggestion, inputProps, shouldRenderSuggestions,
+      alwaysOpened, suggestions, renderSuggestion, inputProps, shouldRenderSuggestions,
       onSuggestionSelected, multiSection, renderSectionTitle, id,
       getSectionSuggestions, focusInputOnSuggestionClick, theme, isFocused,
       isCollapsed, focusedSectionIndex, focusedSuggestionIndex,
@@ -235,7 +235,8 @@ class Autosuggest extends Component {
           case 'Enter': {
             const focusedSuggestion = this.getFocusedSuggestion();
 
-            closeSuggestions('enter');
+            if (!alwaysOpened)
+              closeSuggestions('enter');
 
             if (focusedSuggestion !== null) {
               onSuggestionSelected(event, {
@@ -325,7 +326,8 @@ class Autosuggest extends Component {
     const renderItem = item => renderSuggestion(item, { value, valueBeforeUpDown });
 
     return (
-      <Autowhatever multiSection={multiSection}
+      <Autowhatever alwaysOpened={alwaysOpened}
+                    multiSection={multiSection}
                     items={items}
                     renderItem={renderItem}
                     renderSectionTitle={renderSectionTitle}
